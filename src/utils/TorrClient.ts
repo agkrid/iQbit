@@ -156,7 +156,7 @@ export const TorrClient = {
   },
 
   addCategory: async (name: string, path: string) => {
-    return await APICall.get("torrents/createCategory", {
+    return await APICall.post("torrents/createCategory", {
       params: {
         category: name,
         savePath: path,
@@ -173,7 +173,7 @@ export const TorrClient = {
   // },
 
   saveCategory: async (category: string, savePath: string) => {
-    return await APICall.get("torrents/editCategory", {
+    return await APICall.post("torrents/editCategory", {
       params: {
         category,
         savePath,
@@ -182,7 +182,7 @@ export const TorrClient = {
   },
 
   setTorrentCategory: async (hash = "", category = "") => {
-    return await APICall.get("torrents/setCategory", {
+    return await APICall.post("torrents/setCategory", {
       params: {
         hashes: hash,
         category,
@@ -191,7 +191,7 @@ export const TorrClient = {
   },
 
   renameTorrent: async (hash: string, name: string) => {
-    return await APICall.get("torrents/rename", {
+    return await APICall.post("torrents/rename", {
       params: {
         hash,
         name,
